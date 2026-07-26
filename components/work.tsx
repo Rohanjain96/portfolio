@@ -75,7 +75,7 @@ export default function Work() {
           type="button"
           aria-label="Previous project"
           onClick={() => scrollBy(-1)}
-          className="absolute left-2 top-1/2 z-10 -mt-[23px] grid h-11 w-11 place-items-center rounded-full border border-[#d6ecfa] bg-white shadow-[0_6px_16px_rgba(23,116,168,.14)] transition-colors hover:border-[#8fd3f2] hover:bg-[#f5fbff]"
+          className="absolute left-2 top-1/2 z-10 -mt-[23px] hidden h-11 w-11 place-items-center rounded-full border border-[#d6ecfa] bg-white shadow-[0_6px_16px_rgba(23,116,168,.14)] transition-colors hover:border-[#8fd3f2] hover:bg-[#f5fbff] sm:grid"
         >
           <ChevronLeft size={20} color="#0d8ec9" />
         </button>
@@ -83,7 +83,7 @@ export default function Work() {
           type="button"
           aria-label="Next project"
           onClick={() => scrollBy(1)}
-          className="absolute right-2 top-1/2 z-10 -mt-[23px] grid h-11 w-11 place-items-center rounded-full border border-[#d6ecfa] bg-white shadow-[0_6px_16px_rgba(23,116,168,.14)] transition-colors hover:border-[#8fd3f2] hover:bg-[#f5fbff]"
+          className="absolute right-2 top-1/2 z-10 -mt-[23px] hidden h-11 w-11 place-items-center rounded-full border border-[#d6ecfa] bg-white shadow-[0_6px_16px_rgba(23,116,168,.14)] transition-colors hover:border-[#8fd3f2] hover:bg-[#f5fbff] sm:grid"
         >
           <ChevronRight size={20} color="#0d8ec9" />
         </button>
@@ -133,19 +133,37 @@ export default function Work() {
           ))}
         </div>
 
-        <div className="mt-1.5 flex justify-center gap-2">
-          {Array.from({ length: pageCount }).map((_, i) => {
-            const active = Math.min(index, pageCount - 1) === i;
-            return (
-              <button
-                key={i}
-                aria-label={"Go to project " + (i + 1)}
-                onClick={() => scrollTo(i)}
-                className="h-2 rounded-full transition-all duration-300"
-                style={{ width: active ? 22 : 8, background: active ? "#0ea5e9" : "#cfe8f7" }}
-              />
-            );
-          })}
+        <div className="mt-1.5 flex items-center justify-center gap-3">
+          <button
+            type="button"
+            aria-label="Previous project"
+            onClick={() => scrollBy(-1)}
+            className="grid h-9 w-9 place-items-center rounded-full border border-[#d6ecfa] bg-white shadow-[0_6px_16px_rgba(23,116,168,.14)] transition-colors hover:border-[#8fd3f2] hover:bg-[#f5fbff] sm:hidden"
+          >
+            <ChevronLeft size={18} color="#0d8ec9" />
+          </button>
+          <div className="flex items-center gap-2">
+            {Array.from({ length: pageCount }).map((_, i) => {
+              const active = Math.min(index, pageCount - 1) === i;
+              return (
+                <button
+                  key={i}
+                  aria-label={"Go to project " + (i + 1)}
+                  onClick={() => scrollTo(i)}
+                  className="h-2 rounded-full transition-all duration-300"
+                  style={{ width: active ? 22 : 8, background: active ? "#0ea5e9" : "#cfe8f7" }}
+                />
+              );
+            })}
+          </div>
+          <button
+            type="button"
+            aria-label="Next project"
+            onClick={() => scrollBy(1)}
+            className="grid h-9 w-9 place-items-center rounded-full border border-[#d6ecfa] bg-white shadow-[0_6px_16px_rgba(23,116,168,.14)] transition-colors hover:border-[#8fd3f2] hover:bg-[#f5fbff] sm:hidden"
+          >
+            <ChevronRight size={18} color="#0d8ec9" />
+          </button>
         </div>
       </div>
     </section>

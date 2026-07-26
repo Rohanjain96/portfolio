@@ -2,9 +2,9 @@ const csp = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "img-src 'self' data: https://cdn.jsdelivr.net https://api.iconify.design",
+  "img-src 'self' data: https://cdn.jsdelivr.net https://api.iconify.design https://cdn.simpleicons.org",
   "font-src 'self' https://fonts.gstatic.com",
-  "connect-src 'self'",
+  "connect-src 'self' https://formspree.io",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -12,7 +12,7 @@ const csp = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: { remotePatterns: [{ protocol: 'https', hostname: 'cdn.jsdelivr.net' }, { protocol: 'https', hostname: 'api.iconify.design' }] },
+  images: { remotePatterns: [{ protocol: 'https', hostname: 'cdn.jsdelivr.net' }, { protocol: 'https', hostname: 'api.iconify.design' }, { protocol: 'https', hostname: 'cdn.simpleicons.org' }] },
   async headers() {
     return [
       {
