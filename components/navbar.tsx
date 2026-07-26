@@ -103,7 +103,7 @@ export default function Navbar() {
         {open && (
           <motion.div
             key="menu"
-            className="fixed inset-0 z-[110] grid content-center overflow-y-auto px-7 pb-10 pt-24 md:hidden"
+            className="fixed inset-0 z-[110] grid content-center overflow-y-auto overflow-x-hidden px-7 pb-10 pt-24 md:hidden"
             style={{ background: "radial-gradient(120% 100% at 82% 6%, #1f7fae 0%, #0f4c6b 55%, #0a3349 100%)" }}
             initial={{ clipPath: "circle(0px at calc(100% - 40px) 46px)" }}
             animate={{ clipPath: "circle(150% at calc(100% - 40px) 46px)" }}
