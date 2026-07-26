@@ -28,6 +28,11 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-stopped { overflow: hidden; }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   background: linear-gradient(180deg, #e9f4fe 0%, #eaf6ff 40%, #e6f1fb 100%);
   color: var(--color-ink);

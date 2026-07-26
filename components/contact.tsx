@@ -15,17 +15,36 @@ const SOCIALS = [
 const field =
   "w-full rounded-xl border border-[#dfeef9] bg-[#f7fbfe] px-4 py-3 text-[15px] text-[#123c53] outline-none transition focus:border-[#5cc0ea] focus:bg-white focus:ring-4 focus:ring-[#5cc0ea]/20";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mnqlyvgk";
+
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState(false);
+  const [sending, setSending] = useState(false);
   const [engagement, setEngagement] = useState(ENGAGEMENTS[0]);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    // Wire this to your route handler / Resend / Formspree endpoint.
-    console.log({ ...data, engagement });
-    setSent(true);
-    e.currentTarget.reset();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    formData.append("engagement", engagement);
+
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setSent(true);
+      form.reset();
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -131,16 +150,21 @@ export default function Contact() {
             </label>
 
             <div className="mt-1 flex flex-wrap items-center justify-between gap-3.5">
-              <span className="text-[13px] text-ink-muted">
-                {sent ? "Thanks — message sent. I'll reply within a day." : "Usually replies within 24 hours."}
+              <span className={"text-[13px] " + (error ? "text-red-500" : "text-ink-muted")}>
+                {error
+                  ? "Something went wrong. Please try again or email me directly."
+                  : sent
+                    ? "Thanks — message sent. I'll reply within a day."
+                    : "Usually replies within 24 hours."}
               </span>
               <motion.button
                 type="submit"
+                disabled={sending}
                 whileHover={{ y: -3 }}
                 whileTap={{ y: -1, scale: 0.98 }}
-                className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-br from-[#2aa7e0] to-brand-deep px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_12px_26px_rgba(13,142,201,.32)]"
+                className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-br from-[#2aa7e0] to-brand-deep px-7 py-3.5 text-[15px] font-semibold text-white shadow-[0_12px_26px_rgba(13,142,201,.32)] disabled:opacity-60"
               >
-                <Send size={17} /> Send message
+                <Send size={17} /> {sending ? "Sending…" : "Send message"}
               </motion.button>
             </div>
           </form>
