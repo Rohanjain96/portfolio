@@ -1,6 +1,4 @@
-# Daniel Okafor — Portfolio (Next.js)
-
-Next.js 15 App Router port of the HTML design.
+# Rohan jain — Portfolio (Next.js)
 
 ## Stack
 - **Next.js 15 + React 19 + TypeScript**
