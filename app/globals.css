@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-orbitron: "Orbitron", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #10334a;
+  --color-ink-soft: #557b93;
+  --color-ink-muted: #7d9db0;
+  --color-brand: #0ea5e9;
+  --color-brand-deep: #0d8ec9;
+  --color-brand-soft: #7fd3f4;
+  --color-surface: #ffffff;
+  --color-line: #e2eff9;
+
+  --animate-floaty: floaty 7s ease-in-out infinite;
+  --animate-drift: drift 16s ease-in-out infinite;
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-spin-slow: spin 40s linear infinite;
+}
+
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@keyframes drift { 0%, 100% { transform: translateY(0) scale(1); opacity: .55; } 50% { transform: translateY(-40px) scale(1.08); opacity: .85; } }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+body {
+  background: linear-gradient(180deg, #e9f4fe 0%, #eaf6ff 40%, #e6f1fb 100%);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
