@@ -47,7 +47,8 @@ export default function Hero() {
         </p>
         <div className="mt-7 flex flex-wrap gap-3.5">
           <motion.a
-            href="/resume.pdf"
+            href="/Rohan_Jain_Resume.pdf"
+            download="Rohan-Jain-Resume.pdf"
             whileHover={{ y: -3 }}
             whileTap={{ y: -1, scale: 0.98 }}
             className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-br from-[#2aa7e0] to-brand-deep px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_12px_26px_rgba(13,142,201,.32)]"

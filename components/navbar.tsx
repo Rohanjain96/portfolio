@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 import { Mail } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
-import { NAV_LINKS } from "@/lib/data";
+import { NAV_LINKS, CONTACT } from "@/lib/data";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -128,13 +128,13 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="mt-4 flex flex-wrap gap-2.5">
-                <a href="#contact" onClick={go("#contact")} className="inline-flex items-center gap-2 rounded-full bg-[#9fe0fb] px-5 py-2.5 text-[13px] font-semibold text-[#0b3d55]">
-                  <Mail size={16} /> hello@danielokafor.dev
+                <a href={"mailto:" + CONTACT.email} className="inline-flex items-center gap-2 rounded-full bg-[#9fe0fb] px-5 py-2.5 text-[13px] font-semibold text-[#0b3d55]">
+                  <Mail size={16} /> {CONTACT.email}
                 </a>
-                <a href="#contact" onClick={go("#contact")} className="inline-flex items-center gap-2 rounded-full border border-[#cdeeff]/40 px-5 py-2.5 text-[13px] font-semibold text-[#cdeeff]">
+                <a href={CONTACT.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#cdeeff]/40 px-5 py-2.5 text-[13px] font-semibold text-[#cdeeff]">
                   <FaGithub size={16} /> GitHub
                 </a>
-                <a href="#contact" onClick={go("#contact")} className="inline-flex items-center gap-2 rounded-full border border-[#cdeeff]/40 px-5 py-2.5 text-[13px] font-semibold text-[#cdeeff]">
+                <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-[#cdeeff]/40 px-5 py-2.5 text-[13px] font-semibold text-[#cdeeff]">
                   <FaLinkedinIn size={16} /> LinkedIn
                 </a>
               </div>
