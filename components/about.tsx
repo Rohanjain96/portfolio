@@ -68,7 +68,7 @@ export default function About() {
         </RevealItem>
         <RevealItem>
           <p className="max-w-[560px] text-base leading-[1.8] text-ink-soft text-pretty">
-            I&apos;m a full-stack engineer with 2.5+ years building performance-sensitive web applications across fintech, trading and SaaS products — specialising in the React / Next.js / TypeScript / Node.js stack.
+            I&apos;m a full-stack engineer with 3+ years building performance-sensitive web applications across fintech, trading and SaaS products — specialising in the React / Next.js / TypeScript / Node.js stack.
           </p>
         </RevealItem>
         <RevealItem>

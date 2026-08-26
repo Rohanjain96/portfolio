@@ -25,7 +25,7 @@ export const devicon = (slug: string) =>
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/" + slug + ".svg";
 
 export const STATS = [
-  { value: 2.5, suffix: "+", label: "Years shipping" },
+  { value: 3, suffix: "+", label: "Years shipping" },
   { value: 30, suffix: "%", label: "Faster page loads" },
   { value: 40, suffix: "%", label: "Fewer network calls" },
 ];
