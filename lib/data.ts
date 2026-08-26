@@ -33,7 +33,7 @@ export const STATS = [
 export const TIMELINE = [
   {
     color: "#0ea5e9",
-    period: "Jan 2024 — Present",
+    period: "Jan 2024 — Aug 2026",
     place: "Noida, India",
     title: "Software Development Engineer I",
     org: "Pantelwar",
@@ -157,6 +157,8 @@ export const PROJECTS = [
       { label: "RTK Query", icon: "redux/redux-original" },
     ],
     slot: "PROJECT SHOT — Fingyani trading UI",
+    link: "https://fingyani.com/",
+    screenshot: "/fingyani-screenshot.png",
   },
   {
     title: "360 One — Data Platform",
@@ -177,7 +179,7 @@ export const PROJECTS = [
       { label: "Chakra UI", simpleIcon: "chakraui" },
     ],
     slot: "PROJECT SHOT — Chatify",
-    link: "https://mern-chatify123.herokuapp.com",
+    link: "https://chat-app-lpen.onrender.com/",
     screenshot: "/chatify-screenshot.png",
   },
   {
@@ -219,6 +221,7 @@ export const PROJECTS = [
       { label: "HTML5", icon: "html5/html5-original" },
     ],
     slot: "PROJECT SHOT — Minesweeper",
+    link: "https://minesweeper-game123.netlify.app/",
     screenshot: "/minesweeper-screenshot.png",
   },
 ];
